@@ -61,4 +61,67 @@ funcionalidades e da interface.
 
 ## Instalação
 
-As instruções de instalação e execução serão adicionadas conforme o desenvolvimento avançar.
+### Pré-requisitos
+
+- PHP 8.3 ou superior
+- Composer
+- Node.js e npm
+- PostgreSQL
+- Git
+
+### 1. Clonar o repositório
+
+```bash
+git clone https://github.com/rickthestranger/fashion-catalog.git
+cd fashion-catalog
+```
+
+### 2. Instalar as dependências
+
+```bash
+composer install
+npm install
+```
+
+### 3. Configurar o ambiente
+
+Copie o arquivo `.env.example` para `.env`:
+
+```bash
+cp .env.example .env
+```
+
+Gere a chave da aplicação:
+
+```bash
+php artisan key:generate
+```
+
+### 4. Configurar o banco de dados
+
+Crie um banco PostgreSQL chamado `fashion_catalog`.
+
+Configure as credenciais de acesso no arquivo `.env`.
+
+### 5. Criar as tabelas e carregar os dados
+
+```bash
+php artisan migrate --seed
+```
+
+Esse comando cria as tabelas e cadastra as categorias e os produtos iniciais.
+
+### 6. Compilar os arquivos do frontend
+
+```bash
+npm run build
+```
+
+### 7. Iniciar a aplicação
+
+```bash
+php artisan serve
+```
+
+Acesse: http://127.0.0.1:8000
+
