@@ -1,61 +1,74 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de produtos</title>
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body>
-    <header>
-        <h1>Catálogo</h1>
+@extends('layouts.app')
 
-        <nav>
-            <a href="/">Início</a>
-        </nav>    
-    </header>
-    <main>
-        <section>
-            <h2>Nosso catálogo</h2>
-            <p>Explore nossos produtos.</p>
-            <h3>Produtos em destaque</h3>
+@section('title', 'Produtos')
+
+@section('content')
+
+
+<section class="mx-auto max-w-7xl px-6 py-20">
+
+    <div class="mb-12">
+        <p class="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-lime-400">
+            Nossa coleção
+        </p>
+
+        <h1 class="text-4xl font-black uppercase tracking-tight md:text-5xl">
+            Todos os produtos
+        </h1>
+
+        <p class="mt-4 text-gray-400">
+            Explore nossa seleção de peças.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+        @foreach ($products as $product)
+
             
-            <div class="products-grid">
+            <a href="/products/{{ $product->id }}" class="group">
 
-                @foreach ($products as $product)
-                    <a href="/products/{{ $product->id }}">
-                        <div class="bg-black rounded-lg p-4 text-white shadow-lg">
-                            <img 
+                <div class="overflow-hidden bg-[#20221d]">
+
+                    <div class="flex aspect-[4/5] items-center justify-center p-6">
+
+                        <img
                             src="{{ $product->image_path }}"
-                            alt="{{ $product->name}}"
-                            class="w-full h-auto max-h-64 object-contain"
-                            >
-                            <h4>{{ $product->name }}</h4>
-                            <p> {{ $product->formatted_price }}</p>
-                        </div>
-                    </a>    
-                    
-                @endforeach
+                            alt="{{ $product->name }}"
+                            class="h-full w-full object-contain transition duration-500 group-hover:scale-105"
+                        >
 
+                    </div>
+
+                </div>
+
+                <div class="flex items-start justify-between gap-4 py-5">
+
+                    <div>
+                        <h2 class="font-bold transition group-hover:text-lime-400">
+                            {{ $product->name }}
+                        </h2>
+
+                        <p class="mt-2 text-sm text-gray-500">
+                            {{ $product->category->name }}
+                        </p>
+                </div>
+
+                <p class="font-bold text-lime-400">
+                    {{ $product->formatted_price }}
+                </p>
 
             </div>
-        </section>
-    </main>
-    <footer>
-        <section>
-            <h2>URBAN STORE</h2>
-            <p>STREETWEAR - ESTILO URBANO</p>
-        </section>
-        <section>
-            <h3>CONTATO</h3>
-            <p>WhatsApp:(00)(0 0000-0000)</p>
-            <p>E-mail:Contato@urbanstore.com</p>
-        </section>
-        <section>
-            <h3>REDES SOCIAIS</h3>
-            <p>@urbanstore</p>
-        </section>
-    </footer>
-</body>
-</html>
+
+        </a>
+
+
+        @endforeach
+
+    </div>
+
+</section>
+
+
+@endsection

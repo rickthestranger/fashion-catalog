@@ -5,14 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
-
 {
+    protected $fillable = [
+        'category_id',
+        'name',
+        'description',
+        'price',
+        'size',
+        'image_path',
+        'is_featured',
+    ];
+
     public function category()
     {
-    return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class);
     }
+
     public function getFormattedPriceAttribute()
     {
-    return 'R$ ' . number_format($this->price, 2, ',', '.');
+        return 'R$ ' . number_format($this->price, 2, ',', '.');
     }
 }
