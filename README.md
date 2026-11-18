@@ -27,11 +27,11 @@ administrativa para controle dos cadastros.
 ### Catálogo público
 - [x] Página inicial
 - [x] Listagem de produtos
-- [ ] Pesquisa e filtros
+- [x] Pesquisa e filtros
 - [x] Visualização de detalhes dos produtos
 
 ### Área administrativa
-- [ ] Autenticação de usuários
+- [x] Autenticação de usuários
 - [ ] Cadastro de produtos
 - [ ] Edição de produtos
 - [ ] Exclusão de produtos
