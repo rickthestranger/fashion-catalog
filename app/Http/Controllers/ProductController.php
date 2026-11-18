@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 
 //use Illuminate\Http\Request;
 
@@ -10,9 +11,22 @@ class ProductController extends Controller
 {
     public function index()
     {
-    $products = Product::all();
+    $categoryId = request('category');    
+    $products = Product::query();
+    $products->when($categoryId, function ($query, $categoryId) {
+    $query->where('category_id', $categoryId);
+    });
 
-    return view('products', compact('products'));
+    $search = request('search');
+
+    $products->when($search, function ($query, $search) {
+    $query->where('name', 'ILIKE', "%{$search}%");
+    });
+
+    $products = $products->get();
+    $categories = Category::orderBy('name')->get();
+
+    return view('products', compact('products' , 'categories' , 'categoryId', 'search'));
     }
     public function home()
     {

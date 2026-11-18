@@ -22,6 +22,51 @@
         </p>
     </div>
 
+    <form action="{{ url('/products') }}" method="GET" class="mb-8 flex gap-3">
+
+        <input
+            type="text"
+            name="search"
+            value="{{ $search }}"
+            placeholder="Buscar produtos..."
+            class="w-full rounded-lg border border-white/10 bg-[#20221d] px-5 py-3 text-white placeholder-gray-500 outline-none transition focus:border-lime-400"
+        >
+
+        @if ($categoryId)
+            <input type="hidden" name="category" value="{{ $categoryId }}">
+        @endif
+
+        <button
+            type="submit"
+            class="rounded-lg bg-lime-400 px-6 py-3 font-bold text-black transition hover:bg-lime-300"
+        >
+            Buscar
+        </button>
+
+    </form>
+
+    <nav class="mb-12 flex flex-wrap gap-3">
+
+        <a href="/products"
+           class="rounded-full px-5 py-2 text-sm font-bold transition
+           {{ !$categoryId ? 'bg-lime-400 text-black' : 'bg-[#20221d] text-gray-400 hover:text-lime-400' }}">
+            Todos
+        </a>
+
+        @foreach ($categories as $category)
+
+            <a href="{{ url('/products') . '?category=' . $category->id }}"
+               class="rounded-full px-5 py-2 text-sm font-bold transition
+               {{ $categoryId == $category->id ? 'bg-lime-400 text-black' : 'bg-[#20221d] text-gray-400 hover:text-lime-400' }}">
+
+                {{ $category->name }}
+
+            </a>
+
+        @endforeach
+
+    </nav>
+
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
         @foreach ($products as $product)
