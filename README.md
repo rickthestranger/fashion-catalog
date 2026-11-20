@@ -32,18 +32,18 @@ administrativa para controle dos cadastros.
 
 ### Área administrativa
 - [x] Autenticação de usuários
-- [ ] Cadastro de produtos
-- [ ] Edição de produtos
-- [ ] Exclusão de produtos
-- [ ] Gerenciamento de categorias
-- [ ] Upload de imagens
+- [x] Cadastro de produtos
+- [x] Edição de produtos
+- [x] Exclusão de produtos
+- [x] Gerenciamento de categorias
+- [x] Upload de imagens
 
 ## Infraestrutura
 
 - [x] Banco de dados PostgreSQL
 - [ ] Configuração do ambiente com Laravel Sail
 - [ ] Containerização da aplicação com Docker
-- [ ] Documentação de instalação e execução
+- [x] Documentação de instalação e execução
 
 ## Desenvolvimento
 
