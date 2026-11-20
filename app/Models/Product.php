@@ -25,4 +25,16 @@ class Product extends Model
     {
         return 'R$ ' . number_format($this->price, 2, ',', '.');
     }
+    public function getImageUrlAttribute()
+    {
+        if (!$this->image_path) {
+            return null;
+        }
+
+        if (str_starts_with($this->image_path, 'products/')) {
+            return \Illuminate\Support\Facades\Storage::disk('public')->url($this->image_path);
+        }
+
+        return asset(ltrim($this->image_path, '/'));
+    }
 }

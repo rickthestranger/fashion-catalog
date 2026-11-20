@@ -67,8 +67,19 @@
 
         </div>
 
-        <div class="border-t border-white/10 px-6 py-5 text-center text-xs text-gray-600">
-            © 2026 Urban Store — Projeto demonstrativo.
+        <div class="flex flex-col items-center justify-between gap-3 border-t border-white/10 px-6 py-5 text-xs text-gray-600 sm:flex-row">
+
+            <p>
+                © 2026 Urban Store — Projeto demonstrativo.
+            </p>
+
+            <a
+                href="{{ route('admin.dashboard') }}"
+                class="transition hover:text-gray-300"
+            >
+                Acesso administrativo
+            </a>
+
         </div>
 
     </footer>

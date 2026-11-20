@@ -18,7 +18,7 @@
         <div class="flex min-h-[450px] items-center justify-center bg-[#20221d] p-10">
 
             <img
-                src="{{ $product->image_path }}"
+                src="{{ $product->image_url }}"
                 alt="{{ $product->name }}"
                 class="h-full max-h-[550px] w-full object-contain"
             >

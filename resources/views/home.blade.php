@@ -77,7 +77,7 @@
                             <div class="flex aspect-[4/5] items-center justify-center p-6">
 
                                 <img
-                                    src="{{ $product->image_path }}"
+                                    src="{{ $product->image_url }}"
                                     alt="{{ $product->name }}"
                                     class="h-full w-full object-contain transition duration-500 group-hover:scale-105"
                                 >

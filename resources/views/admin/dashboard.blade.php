@@ -1,6 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Painel Administrativo')
+
+@section('page-heading', 'Dashboard')
 
 @section('content')
 
